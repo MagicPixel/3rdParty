@@ -1,0 +1,81 @@
+{
+	"cmake":
+		{
+			"Windows":
+			{
+				"Generator":
+				{
+					"x86": ["-G Visual Studio 12 2013 Win32"],
+					"x64": ["-G Visual Studio 12 2013 Win64"]
+				},
+
+				"Build": 
+				{
+					"bin": "C:/Program Files (x86)/MSBuild/12.0/Bin/MSBuild.exe",
+					"target" : ["ALL_BUILD.vcxproj"],
+					"mutli_thread" : "/maxcupcount:%d"
+				} ,
+
+				"Install":
+				{
+					"bin": "C:/Program Files (x86)/MSBuild/12.0/Bin/MSBuild.exe",
+					"target" : ["INSTALL_BUILD.vcxproj"],
+					"multi_thread" : "/maxcupcount:%d"
+				}
+			},
+			"Linux":
+			{
+				"Generator":
+				{
+					"x86": ["-DCMAKE_C_FLAGS=-m32", "-DCMAKE_CXX_FLAGS=-m32"],
+					"x64": ["-DCMAKE_C_FLAGS=-m64", "-DCMAKE_CXX_FLAGS=-m64"]
+				},
+
+				"Build":
+				{
+					"bin": "make",
+					"target" : [],
+					"multi_thread" : "-j%d"
+				} ,
+
+				"Install":
+				{
+					"bin": "make",
+					"target" : ["install"],
+					"multi_thread" : "-j%d"
+				}
+			}
+		},
+
+	"3rdParty": 
+	[
+		{
+			"name": "boost",
+			"git" : "https://github.com/boot/boost.git",
+			"version": "boost-1.69.0",
+			"version_root" : "boost_1_69_0",
+			"zip": "https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0_rc1.zip"
+		},
+		{
+			"name": "opencv",
+			"git" : "https://github.com/MagicPixel-Dev/opencv.git",
+
+			"version" : "2.4.10",
+			"version_root": "opencv_2_4_10"
+		},
+		{
+			"name": "log4cplus",
+			"git" : "https://github.com/MagicPixel-Dev/log4cplus.git",
+
+			"version" : "REL_2_0_0",
+			"version_root": "log4cplus_2_0_0"
+		},
+		{
+			"name": "gtest",
+			"git" : "https://github.com/MagicPixel-Dev/gtest.git",
+			"version": "master",
+			"version_root": "gtest_master"
+		}
+	]
+
+}
